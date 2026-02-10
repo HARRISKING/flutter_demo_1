@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo_1/home.dart';
-import 'package:flutter_demo_1/detail.dart';
-import 'package:flutter_demo_1/my.dart';
-import 'package:flutter_demo_1/index.dart';
+import 'package:flutter_demo_1/pages/home.dart';
+import 'package:flutter_demo_1/pages/detail.dart';
+import 'package:flutter_demo_1/pages/my.dart';
+import 'package:flutter_demo_1/pages/index.dart';
 
 void main() {
   runApp(MyApp());
