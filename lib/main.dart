@@ -24,14 +24,14 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  final List _lists = [Home(), Details(), MyApp()];
+  final List _lists = [Home(), Detail(), MyApp()];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Index(),
-      routes: {'/home': (context) => Home(), '/detail': (context) => Details()},
+      routes: {'/home': (context) => Home(), '/detail': (context) => Detail()},
     );
   }
 }

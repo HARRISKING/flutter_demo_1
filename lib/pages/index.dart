@@ -19,7 +19,7 @@ class _IndexState extends State<Index> {
     });
   }
 
-  final List _lists = [Home(), Details(), MyApp()];
+  final List _lists = [Home(), Detail(), MyApp()];
 
   @override
   Widget build(BuildContext context) {
