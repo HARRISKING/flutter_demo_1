@@ -1,14 +1,35 @@
 import 'package:flutter/material.dart';
+import 'detail.dart';
+import 'my.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int _currentIndex = 0;
+
+  void _changePage(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  final List _lists = [HomeContent(), Details(), MyApp()];
+
+  @override
   Widget build(BuildContext context) {
-    List names = ['jack', 'mily', 'tom'];
     return Scaffold(
-      backgroundColor: Colors.pink,
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          _changePage(index);
+        },
+        selectedFontSize: 16,
+        unselectedFontSize: 16,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: '首页'),
           BottomNavigationBarItem(
@@ -46,7 +67,6 @@ class Home extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
-        title: Text('首页'),
         backgroundColor: Colors.amber[900],
         titleTextStyle: TextStyle(
           color: Colors.white,
@@ -54,22 +74,17 @@ class Home extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
         elevation: 0,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.skip_next, color: Colors.white),
-            onPressed: () {
-              Navigator.pushNamed(context, '/detail');
-            },
-          ),
-        ],
       ),
-      body: Container(
-        color: Colors.white,
-        child: ListView.builder(
-          itemBuilder: (value, index) => ListTile(title: Text(names[index])),
-          itemCount: names.length,
-        ),
-      ),
+      body: _lists[_currentIndex],
     );
+  }
+}
+
+class HomeContent extends StatelessWidget {
+  const HomeContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(child: Text('首页内容'));
   }
 }
