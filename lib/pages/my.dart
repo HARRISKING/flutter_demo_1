@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo_1/pages/components/todo_item.dart';
+import 'package:flutter_demo_1/pages/components/add_dialog.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -19,6 +20,12 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  void addTask(String task) {
+    setState(() {
+      _todoItems.add([task, false]);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +39,13 @@ class _MyAppState extends State<MyApp> {
             onChanged: (value) => changeStatus(index),
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => showDialog(
+          context: context,
+          builder: (context) => AddDialog(onAddTask: addTask),
+        ),
+        child: Icon(Icons.add),
       ),
     );
   }

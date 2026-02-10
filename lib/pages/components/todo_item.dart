@@ -23,10 +23,15 @@ class TodoItem extends StatelessWidget {
         child: Row(
           children: [
             Checkbox(value: status, onChanged: (value) => onChanged!(value)),
-            Text(
-              content,
-              style: TextStyle(
-                decoration: status ? TextDecoration.lineThrough : null,
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+                child: Text(
+                  content,
+                  style: TextStyle(
+                    decoration: status ? TextDecoration.lineThrough : null,
+                  ),
+                ),
               ),
             ),
           ],
