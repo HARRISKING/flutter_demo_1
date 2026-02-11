@@ -32,7 +32,7 @@ class _IndexState extends State<Index> {
   }
 
   // 页面列表，包含首页、详情页和我的页面
-  final List _lists = [Home(), Detail(), MyApp()];
+  final List _lists = [MyApp(), Home(), Detail()];
 
   // 重写build方法，构建UI界面
   @override
